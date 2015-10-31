@@ -15,20 +15,38 @@
     <body>
         <div class="container">
 
-            <form class="form-signin">
-                <h2 class="form-signin-heading">Rejestracja</h2>
+            <h2 class="form-signin-heading">Rejestracja</h2>
 
-                <label for="name" class="sr-only">Imię</label>
-                <input type="text" id="name" class="form-control form-register-control" placeholder="Imię" required autofocus>
+            <div id="signin-success" class="alert alert-success" role="alert"></div>
 
-                <label for="surname" class="sr-only">Nazwisko</label>
-                <input type="text" id="surname" class="form-control form-register-control" placeholder="Nazwisko" required>
+            <form id="signin" class="form-signin">
+                <div id="name-wrapper">
+                    <label for="name" class="sr-only">Imię</label>
+                    <input type="text" id="name" class="form-control form-register-control" placeholder="Imię" autofocus>
 
-                <label for="age" class="sr-only">Wiek</label>
-                <input type="number" id="age" class="form-control form-register-control" placeholder="Wiek" required>
+                    <div id="name-error" class="alert alert-danger" role="alert"></div>
+                </div>
 
-                <label for="email" class="sr-only">Adres email</label>
-                <input type="email" id="email" class="form-control form-register-control" placeholder="Adres email" required>
+                <div id="surname-wrapper">
+                    <label for="surname" class="sr-only">Nazwisko</label>
+                    <input type="text" id="surname" class="form-control form-register-control" placeholder="Nazwisko">
+
+                    <div id="surname-error" class="alert alert-danger" role="alert"></div>
+                </div>
+
+                <div id="age-wrapper">
+                    <label for="age" class="sr-only">Wiek</label>
+                    <input type="text" id="age" class="form-control form-register-control" placeholder="Wiek">
+
+                    <div id="age-error" class="alert alert-danger" role="alert"></div>
+                </div>
+
+                <div id="email-wrapper">
+                    <label for="email" class="sr-only">Adres email</label>
+                    <input type="text" id="email" class="form-control form-register-control" placeholder="Adres email">
+
+                    <div id="email-error" class="alert alert-danger" role="alert"></div>
+                </div>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
             </form>
