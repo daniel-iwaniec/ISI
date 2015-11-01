@@ -12,6 +12,8 @@
             error.slideUp('fast', function () {
                 error.parent().removeClass('has-error');
                 error.text('');
+
+                $('body').trigger('after-validation');
             });
         }
 

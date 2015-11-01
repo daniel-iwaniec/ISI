@@ -1,4 +1,5 @@
 $(function () {
+    var body = $('body');
     var form = $('#signin');
 
     var nameInput = form.find('#name');
@@ -56,6 +57,10 @@ $(function () {
             emailError.errorToggle('hide');
         }
 
+        body.trigger('after-validation');
+    });
+
+    body.on('after-validation', function () {
         if (!nameError.is(':visible') && !surnameError.is(':visible') && !ageError.is(':visible') && !emailError.is(':visible')) {
             form.hide('fast');
             formSuccess.show('fast');
