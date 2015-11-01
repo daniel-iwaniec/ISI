@@ -17,6 +17,7 @@ module.exports = function (grunt) {
                 src: [
                     'assets/jQuery/dist/jquery.min.js',
                     'assets/bootstrap/dist/js/bootstrap.min.js',
+                    'assets/app/js/jquery.errorToggle.js',
                     'assets/app/js/js.js'
                 ],
                 dest: 'assets/app.js'
