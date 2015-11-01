@@ -18,8 +18,7 @@ body {
     margin: 0 auto;
 }
 
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
+.form-signin .form-signin-heading, .form-signin .checkbox {
     margin-bottom: 10px;
 }
 
@@ -47,6 +46,10 @@ body {
 
 .alert {
     display: none;
+}
+
+.alert.alert-success {
+    text-align: center;
 }
 
 .alert.alert-danger {
