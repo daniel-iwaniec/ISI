@@ -1,18 +1,30 @@
 $(function () {
-    var form = $('form#signin');
+    var form = $('#signin');
 
+    var formSuccess = $('#signin-success');
     var nameError = form.find('#name-error');
     var surnameError = form.find('#surname-error');
     var ageError = form.find('#age-error');
     var emailError = form.find('#email-error');
 
+    formSuccess.hide();
     nameError.hide();
     surnameError.hide();
     ageError.hide();
     emailError.hide();
 
-    var successBox = $('#signin-success');
-    successBox.hide();
+    var showError = function (errorBox, errorMsg) {
+        errorBox.parent().addClass('has-error');
+        errorBox.text(errorMsg);
+        errorBox.slideDown('slow');
+    };
+
+    var hideError = function (errorBox) {
+        errorBox.slideUp(500, function () {
+            errorBox.parent().removeClass('has-error');
+            errorBox.text('');
+        });
+    };
 
     form.on('submit', function (event) {
         event.preventDefault();
@@ -22,91 +34,46 @@ $(function () {
         var age = form.find('input#age').val();
         var email = form.find('input#email').val();
 
-        var isNameError = false;
-        var isSurnameError = false;
-        var isAgeError = false;
-        var isEmailError = false;
-
-        if (name == '') {
-            isNameError = true;
-            nameError.parent().addClass('has-error');
-            nameError.text('Podaj imię!');
-            nameError.show(500);
-        }
-        if (name.length < 3 && name.length > 50) {
-            isNameError = true;
-            nameError.parent().addClass('has-error');
-            nameError.text('Imię musi zawierać conajmniej 3 znaki i nie więcej niż 50 znaków!');
-            nameError.show(500);
-        }
-        if (!isNameError) {
-            nameError.parent().removeClass('has-error');
-            nameError.hide(500, function () {
-                nameError.text('');
-            });
+        if (name.length == 0) {
+            showError(nameError, 'Podaj imię!');
+        } else if (name.length < 3) {
+            showError(nameError, 'Imię musi zawierać conajmniej 3 znaki!');
+        } else if (name.length > 50) {
+            showError(nameError, 'Imię może zawierać tylko 50 znaków!');
+        } else {
+            hideError(nameError);
         }
 
-        if (surname == '') {
-            isSurnameError = true;
-            surnameError.parent().addClass('has-error');
-            surnameError.text('Podaj nazwisko!');
-            surnameError.show(500);
-        }
-        if (surname.length < 3 && surname.length > 50) {
-            isSurnameError = true;
-            surnameError.parent().addClass('has-error');
-            surnameError.text('Nazwisko musi zawierać conajmniej 3 znaki i nie więcej niż 50 znaków!');
-            surnameError.show(500);
-        }
-        if (!isSurnameError) {
-            surnameError.parent().removeClass('has-error');
-            surnameError.hide(500, function () {
-                surnameError.text('');
-            });
+        if (surname.length == 0) {
+            showError(surnameError, 'Podaj nazwisko!');
+        } else if (surname.length < 3) {
+            showError(surnameError, 'Nazwisko musi zawierać conajmniej 3 znaki!');
+        } else if (surname.length > 50) {
+            showError(surnameError, 'Nazwisko może zawierać tylko 50 znaków!');
+        } else {
+            hideError(surnameError);
         }
 
-        if (age == '') {
-            isAgeError = true;
-            ageError.parent().addClass('has-error');
-            ageError.text('Podaj wiek!');
-            ageError.show(500);
-        }
-        if (!$.isNumeric(age) || age <= 0) {
-            isAgeError = true;
-            ageError.parent().addClass('has-error');
-            ageError.text('Wiek musi być liczbą');
-            ageError.show(500);
-        }
-        if (!isAgeError) {
-            ageError.parent().removeClass('has-error');
-            ageError.hide(500, function () {
-                ageError.text('');
-            });
+        if (age.length == 0) {
+            showError(ageError, 'Podaj wiek!');
+        } else if (!/^[1-9][0-9]{0,2}$/.test(age) || parseInt(age) < 1 || parseInt(age) > 150) {
+            showError(ageError, 'Wiek nie jest prawidłowy!');
+        } else {
+            hideError(ageError);
         }
 
-        if (email == '') {
-            isEmailError = true;
-            emailError.parent().addClass('has-error');
-            emailError.text('Podaj email!');
-            emailError.show(500);
-        }
-        if (!/^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)) {
-            isEmailError = true;
-            emailError.parent().addClass('has-error');
-            emailError.text('Adres email nie jest prawidłowy!');
-            emailError.show(500);
-        }
-        if (!isEmailError) {
-            emailError.parent().removeClass('has-error');
-            emailError.hide(500, function () {
-                emailError.text('');
-            });
+        if (email.length == 0) {
+            showError(emailError, 'Podaj email!');
+        } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]{2,4}$/.test(email)) {
+            showError(emailError, 'Adres email nie jest prawidłowy!');
+        } else {
+            hideError(emailError);
         }
 
-        if (!isNameError && !isSurnameError && !isAgeError && !isEmailError) {
+        if (!nameError.is(':visible') && !surnameError.is(':visible') && !ageError.is(':visible') && !emailError.is(':visible')) {
             form.hide(500);
-            successBox.show(500);
-            successBox.text('Pomyślnie zarejestrowano.');
+            formSuccess.show(500);
+            formSuccess.text('Pomyślnie zarejestrowano.');
         }
     });
 });

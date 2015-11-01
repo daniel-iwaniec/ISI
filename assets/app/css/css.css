@@ -4,6 +4,10 @@ body {
     background-color: #eee;
 }
 
+.form-signin-heading {
+    text-align: center;
+}
+
 .form-register-control {
     margin: 10px 0;
 }
@@ -37,12 +41,10 @@ body {
     z-index: 2;
 }
 
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
 .form-signin .btn {
     margin-top: 10px;
+}
+
+.alert.alert-danger {
+    font-size: 12px;
 }
