@@ -5,6 +5,7 @@ Laboratoria z przedmiotu *inżynieria systemów informacyjnych*.
 ## Instalacja
 
 Do uruchomienia projektu wymagany jest **node.js** oraz **npm**.
+
 Następnie w folderze z projektem należy uruchomić:
 
 `npm install`
@@ -24,7 +25,7 @@ Na końcu otworzyć plik index.html w przeglądarce.
 Jako, że już w labolatorium nr 1 użyte zostały animacje, w laboratium nr 2 zostało dodane:
 
 - możliwość schowania błędu klikając na niego (zaimplementowane za pomocą **animate()**),
-- zmiana koloru nagłówka po poprawnym wypełnieniu formularza (zaimplementowane za pomocą **css()**).
+- zmiana koloru nagłówka po wypełnieniu formularza (zaimplementowane za pomocą **css()**).
 
 ## Autorzy
 
