@@ -63,7 +63,9 @@ $(function () {
     body.on('after-validation', function () {
         if (!nameError.is(':visible') && !surnameError.is(':visible') && !ageError.is(':visible') && !emailError.is(':visible')) {
             form.hide('fast');
-            formSuccess.show('fast');
+            formSuccess.show('fast', function() {
+                $('h2').css('color', '#3c763d');
+            });
             formSuccess.text('Pomyślnie zarejestrowano');
         }
     });
