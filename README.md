@@ -4,27 +4,24 @@ Laboratoria z przedmiotu *inżynieria systemów informacyjnych*.
 
 ## Instalacja
 
-Do uruchomienia projektu wymagany jest **node.js** oraz **npm**.
+Do uruchomienia projektu wymagany jest [**node.js**](https://nodejs.org/en/download/).
 
-Następnie w folderze z projektem należy uruchomić:
+```
+$ cd /sciezka/do/projektu
+$ npm install
+$ npm install bower -g
+$ npm install grunt-cli -g
+$ bower install
+$ grunt
+```
 
-`npm install`
-
-`npm install bower -g`
-
-`npm install grunt-cli -g`
-
-`bower install`
-
-`grunt`
-
-Na końcu otworzyć plik index.html w przeglądarce.
+Plik **index.html** zawiera formularz.
 
 ## Różnica pomiędzy laboratium nr 1 a nr 2
 
-Jako, że już w labolatorium nr 1 użyte zostały animacje, w laboratium nr 2 zostało dodane:
+Jako, że już w *labolatorium nr 1* zostały użyte animacje, w *laboratium nr 2* zostało dodane:
 
-- możliwość schowania błędu klikając na niego (zaimplementowane za pomocą **animate()**),
+- zamykanie błędu po kliknięciu na niego (zaimplementowane za pomocą **animate()**),
 - zmiana koloru nagłówka po wypełnieniu formularza (zaimplementowane za pomocą **css()**).
 
 ## Autorzy
