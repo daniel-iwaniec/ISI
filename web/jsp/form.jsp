@@ -21,7 +21,7 @@
 
     <div id="signin-success" class="alert alert-success" role="alert"></div>
 
-    <form id="signin" class="form-signin">
+    <form id="signin" class="form-signin" action="/" method="post">
         <div id="name-wrapper">
             <label for="name" class="sr-only">Imię</label>
             <input type="text" id="name" class="form-control form-register-control" placeholder="Imię" autofocus>

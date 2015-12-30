@@ -7,7 +7,6 @@ $(function () {
     var ageInput = form.find('#age');
     var emailInput = form.find('#email');
 
-    var formSuccess = $('#signin-success');
     var nameError = form.find('#name-error');
     var surnameError = form.find('#surname-error');
     var ageError = form.find('#age-error');
@@ -62,11 +61,8 @@ $(function () {
 
     body.on('after-validation', function () {
         if (!nameError.is(':visible') && !surnameError.is(':visible') && !ageError.is(':visible') && !emailError.is(':visible')) {
-            form.hide('fast');
-            formSuccess.show('fast', function() {
-                $('h2').css('color', '#3c763d');
-            });
-            formSuccess.text('Pomyślnie zarejestrowano');
+            form.off('submit');
+            form.submit();
         }
     });
 });

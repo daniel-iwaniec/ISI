@@ -18,6 +18,10 @@ public class Index extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF8");
 
+        RequestDispatcher rd = request.getRequestDispatcher("jsp/test.jsp");
+        rd.forward(request, response);
     }
 }
