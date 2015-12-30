@@ -48,10 +48,6 @@ body {
     margin-top: 10px;
 }
 
-.alert {
-    display: none;
-}
-
 .alert.alert-success {
     text-align: center;
 }
