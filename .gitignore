@@ -1,11 +1,7 @@
 .idea/
 node_modules/
-assets/jQuery/
-assets/bootstrap/
-assets/app.css
-assets/app.js
-assets/app.min.css
-assets/app.min.js
+assets/*
+!assets/app
+web/assets/*
+!web/assets/.gitkeep
 out/
-untitled.iml
-ISI.iml

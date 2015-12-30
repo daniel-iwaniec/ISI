@@ -2,6 +2,12 @@
 
 Laboratoria z przedmiotu *inżynieria systemów informacyjnych*.
 
+## Instalacja backendu
+
+Do uruchomienia backendu wymagany jest [**Apache Tomcat**](http://tomcat.apache.org/whichversion.html).
+
+Plik [**src/Index.java**](src/Index.java) zawiera serwlet.
+
 ## Instalacja frontendu
 
 Do uruchomienia frontendu wymagany jest [**node.js**](https://nodejs.org/en/download/).
@@ -15,7 +21,7 @@ $ bower install
 $ grunt
 ```
 
-Plik **index.html** zawiera formularz.
+Plik [**web/jsp/form.jsp**](web/jsp/form.jsp) zawiera widok formularza.
 
 ## Różnica pomiędzy laboratium nr 1 a nr 2
 
