@@ -10,8 +10,8 @@
 
     <title>ISI Formularz</title>
 
-    <link href="app.min.css" rel="stylesheet">
-    <script src="app.min.js"></script>
+    <link href="assets/app.min.css" rel="stylesheet">
+    <script src="assets/app.min.js"></script>
 </head>
 
 <body>

@@ -13,8 +13,7 @@ public class Index extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF8");
 
-        request.setAttribute("komunikat", "teste");
-        RequestDispatcher rd=request.getRequestDispatcher("serwlet.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("jsp/form.jsp");
         rd.forward(request, response);
     }
 

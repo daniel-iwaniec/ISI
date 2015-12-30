@@ -26,14 +26,14 @@ module.exports = function (grunt) {
         cssmin: {
             target: {
                 files: {
-                    'assets/app.min.css': ['assets/app.css']
+                    'web/assets/app.min.css': ['assets/app.css']
                 }
             }
         },
         uglify: {
             build: {
                 src: 'assets/app.js',
-                dest: 'assets/app.min.js'
+                dest: 'web/assets/app.min.js'
             }
         }
     });
