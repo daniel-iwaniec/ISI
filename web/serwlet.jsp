@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
 <!doctype html>
 <html lang="pl">
 <head>
@@ -9,7 +11,7 @@
     <title>ISI Formularz</title>
 
     <link href="app.min.css" rel="stylesheet">
-    <script src="/app.min.js"></script>
+    <script src="app.min.js"></script>
 </head>
 
 <body>

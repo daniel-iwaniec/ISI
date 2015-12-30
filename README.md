@@ -2,9 +2,9 @@
 
 Laboratoria z przedmiotu *inżynieria systemów informacyjnych*.
 
-## Instalacja
+## Instalacja frontendu
 
-Do uruchomienia projektu wymagany jest [**node.js**](https://nodejs.org/en/download/).
+Do uruchomienia frontendu wymagany jest [**node.js**](https://nodejs.org/en/download/).
 
 ```
 $ cd /sciezka/do/projektu
