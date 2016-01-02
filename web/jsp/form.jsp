@@ -20,7 +20,7 @@
 <body>
 <main class="container">
 
-    <h2 class="form-signin-heading">Rejestracja</h2>
+    <h2 id="form-signin-heading">Rejestracja</h2>
 
     <% if (success != null && success) { %>
     <div id="signin-success" class="alert alert-success" role="alert">Pomyślnie zarejestrowano</div>
@@ -39,6 +39,8 @@
 
             <% if (errors != null && errors.get("name") != null && errors.get("name").length() > 0) { %>
             <div id="name-error" class="alert alert-danger" role="alert"><%= errors.get("name") %></div>
+            <% } else { %>
+            <div id="name-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
         </div>
 
@@ -53,6 +55,8 @@
 
             <% if (errors != null && errors.get("surname") != null && errors.get("surname").length() > 0) { %>
             <div id="surname-error" class="alert alert-danger" role="alert"><%= errors.get("surname") %></div>
+            <% } else { %>
+            <div id="surname-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
         </div>
 
@@ -67,6 +71,8 @@
 
             <% if (errors != null && errors.get("age") != null && errors.get("age").length() > 0) { %>
             <div id="age-error" class="alert alert-danger" role="alert"><%= errors.get("age") %></div>
+            <% } else { %>
+            <div id="age-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
         </div>
 
@@ -81,6 +87,8 @@
 
             <% if (errors != null && errors.get("email") != null && errors.get("email").length() > 0) { %>
             <div id="email-error" class="alert alert-danger" role="alert"><%= errors.get("email") %></div>
+            <% } else { %>
+            <div id="email-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
         </div>
 

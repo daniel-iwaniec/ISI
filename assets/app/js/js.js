@@ -1,6 +1,7 @@
 $(function () {
     var body = $('body');
     var form = $('#signin');
+    var header = $('#form-signin-heading');
 
     var nameInput = form.find('#name');
     var surnameInput = form.find('#surname');
@@ -61,8 +62,11 @@ $(function () {
 
     body.on('after-validation', function () {
         if (!nameError.is(':visible') && !surnameError.is(':visible') && !ageError.is(':visible') && !emailError.is(':visible')) {
+            header.css('color', '#000');
             form.off('submit');
             form.submit();
+        } else {
+            header.css('color', '#a94442');
         }
     });
 });
