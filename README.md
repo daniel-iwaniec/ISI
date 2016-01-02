@@ -6,7 +6,7 @@ Laboratoria z przedmiotu *inżynieria systemów informacyjnych*.
 
 Do uruchomienia backendu wymagany jest [**Apache Tomcat**](http://tomcat.apache.org/whichversion.html).
 
-Plik [**src/Index.java**](src/Index.java) zawiera serwlet.
+Plik [*src/Index.java*](src/Index.java) zawiera serwlet.
 
 ## Instalacja frontendu
 
@@ -21,18 +21,18 @@ $ bower install
 $ grunt
 ```
 
-Plik [**web/jsp/form.jsp**](web/jsp/form.jsp) zawiera widok formularza.
+Plik [*web/jsp/form.jsp*](web/jsp/form.jsp) zawiera widok formularza.
 
 ## Różnica pomiędzy laboratium nr 1 a nr 2
 
-Jako, że już w *labolatorium nr 1* zostały użyte animacje, w *laboratium nr 2* zostało dodane:
+Jako, że w *labolatorium nr 1* zostały już użyte animacje, w *laboratium nr 2* zostało dodane:
 
 - zamykanie błędu po kliknięciu na niego (zaimplementowane za pomocą **animate()**),
-- zmiana koloru nagłówka po wypełnieniu formularza (zaimplementowane za pomocą **css()**).
+- zmiana koloru nagłówka formularza (zaimplementowane za pomocą **css()**).
 
 ## Autorzy
 
-- [Daniel Iwaniec](https://github.com/ghutix)
+- [Daniel Iwaniec](https://github.com/daniel-iwaniec)
 - [Artur Kałuża](https://github.com/arturro2828)
 
 ## Licencja
