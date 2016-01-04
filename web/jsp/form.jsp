@@ -1,7 +1,5 @@
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <% Boolean success = (Boolean) request.getAttribute("success"); %>
 <% Map<String, String> errors = (Map<String, String>) request.getAttribute("errors"); %>
 
@@ -29,13 +27,13 @@
     <div class="well">
         <dl class="dl">
             <dt>Imię</dt>
-            <dd><c:out value="${param.name}" escapeXml="true"/></dd>
+            <dd>${param.name}</dd>
             <dt>Nazwisko</dt>
-            <dd><c:out value="${param.surname}" escapeXml="true"/></dd>
+            <dd>${param.surname}</dd>
             <dt>Wiek</dt>
-            <dd><c:out value="${param.age}" escapeXml="true"/></dd>
+            <dd>${param.age}</dd>
             <dt>Adres email</dt>
-            <dd><c:out value="${param.email}" escapeXml="true"/></dd>
+            <dd>${param.email}</dd>
         </dl>
     </div>
     <% } else { %>
@@ -48,7 +46,7 @@
                    class="form-control form-register-control"
                    placeholder="Imię"
                    autofocus
-                   value="${fn:escapeXml(param.name)}">
+                   value="${param.name}">
 
             <% if (errors != null && errors.get("name") != null && errors.get("name").length() > 0) { %>
             <div id="name-error" class="alert alert-danger" role="alert"><%= errors.get("name") %></div>
@@ -64,7 +62,7 @@
                    name="surname"
                    class="form-control form-register-control"
                    placeholder="Nazwisko"
-                   value="${fn:escapeXml(param.surname)}">
+                   value="${param.surname}">
 
             <% if (errors != null && errors.get("surname") != null && errors.get("surname").length() > 0) { %>
             <div id="surname-error" class="alert alert-danger" role="alert"><%= errors.get("surname") %></div>
@@ -80,7 +78,7 @@
                    name="age"
                    class="form-control form-register-control"
                    placeholder="Wiek"
-                   value="${fn:escapeXml(param.age)}">
+                   value="${param.age}">
 
             <% if (errors != null && errors.get("age") != null && errors.get("age").length() > 0) { %>
             <div id="age-error" class="alert alert-danger" role="alert"><%= errors.get("age") %></div>
@@ -96,7 +94,7 @@
                    name="email"
                    class="form-control form-register-control"
                    placeholder="Adres email"
-                   value="${fn:escapeXml(param.email)}">
+                   value="${param.email}">
 
             <% if (errors != null && errors.get("email") != null && errors.get("email").length() > 0) { %>
             <div id="email-error" class="alert alert-danger" role="alert"><%= errors.get("email") %></div>
