@@ -24,8 +24,8 @@
 
     <% if (success != null && success) { %>
     <div id="signin-success" class="alert alert-success" role="alert">Pomyślnie zarejestrowano</div>
-    <% } %>
 
+    <% } else { %>
     <form id="signin" class="form-signin" action="/" method="post">
         <div id="name-wrapper">
             <label for="name" class="sr-only">Imię</label>
@@ -94,7 +94,7 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
     </form>
-
+    <% } %>
 </main>
 </body>
 </html>

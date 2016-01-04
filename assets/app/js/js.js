@@ -13,6 +13,30 @@ $(function () {
     var ageError = form.find('#age-error');
     var emailError = form.find('#email-error');
 
+    var ok = true;
+    if (nameError.is(':visible')) {
+        nameError.is(':visible').errorToggle('show');
+        ok = false;
+    }
+    if (surnameError.is(':visible')) {
+        nameError.is(':visible').errorToggle('show');
+        ok = false;
+    }
+    if (ageError.is(':visible')) {
+        nameError.is(':visible').errorToggle('show');
+        ok = false;
+    }
+    if (emailError.is(':visible')) {
+        nameError.is(':visible').errorToggle('show');
+        ok = false;
+    }
+
+    if (ok) {
+        header.css('color', '#000');
+    } else {
+        header.css('color', '#a94442');
+    }
+
     form.on('submit', function (event) {
         event.preventDefault();
 

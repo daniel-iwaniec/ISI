@@ -6,7 +6,11 @@
 
         if (action == 'show') {
             error.parent().addClass('has-error');
-            error.text(message);
+
+            if (typeof message !== 'undefined') {
+                error.text(message);
+            }
+
             error.slideDown('fast', function () {
 
                 error.off('click');
@@ -19,6 +23,19 @@
                         error.hide();
                         error.css('opacity', 1);
                         error.parent().removeClass('has-error');
+
+                        var ok = true;
+                        $('.alert-danger').each(function() {
+                            if ($(this).is(':visible')) {
+                                ok = false;
+                            }
+                        });
+
+                        if (ok) {
+                            $('#form-signin-heading').css('color', '#000');
+                        } else {
+                            $('#form-signin-heading').css('color', '#a94442');
+                        }
                     });
                 });
 
