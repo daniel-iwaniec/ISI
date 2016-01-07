@@ -1,6 +1,8 @@
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<% HttpSession userSession = (HttpSession) request.getAttribute("userSession"); %>
 <% Boolean success = (Boolean) request.getAttribute("success"); %>
+<% Boolean loginSuccess = (Boolean) request.getAttribute("loginSuccess"); %>
 <% Map<String, String> errors = (Map<String, String>) request.getAttribute("errors"); %>
 
 <!doctype html>
@@ -20,6 +22,32 @@
 <body>
 <main class="container">
 
+    <% if (userSession != null && (boolean) userSession.getAttribute("logged")) { %>
+    <h2 id="form-signin-heading">Panel XML</h2>
+
+    <% if (loginSuccess != null && loginSuccess) { %>
+    <div id="signin-success" class="alert alert-success" role="alert">Pomyślnie zalogowano</div>
+    <% } %>
+
+    <form id="xml" class="form-xml" action="/xml" method="post" enctype="multipart/form-data">
+        <div id="file-wrapper">
+            <label for="file" class="sr-only">Plik XML</label>
+            <input type="file"
+                   id="file"
+                   name="file"
+                   class="form-control form-register-control"
+                   placeholder="Plik XML"
+                   value="${param.file}">
+
+            <% if (errors != null && errors.get("file") != null && errors.get("file").length() > 0) { %>
+            <div id="name-error" class="alert alert-danger" role="alert"><%= errors.get("file") %></div>
+            <% } else { %>
+            <div id="name-error" class="alert alert-danger alert-hide" role="alert"></div>
+            <% } %>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
+    </form>
+    <% } else {%>
     <h2 id="form-signin-heading">Rejestracja</h2>
 
     <% if (success != null && success) { %>
@@ -49,7 +77,8 @@
                    value="${param.name}">
 
             <% if (errors != null && errors.get("name") != null && errors.get("name").length() > 0) { %>
-            <div id="name-error" class="alert alert-danger" role="alert"><%= errors.get("name") %></div>
+            <div id="name-error" class="alert alert-danger" role="alert"><%= errors.get("name") %>
+            </div>
             <% } else { %>
             <div id="name-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
@@ -65,7 +94,8 @@
                    value="${param.surname}">
 
             <% if (errors != null && errors.get("surname") != null && errors.get("surname").length() > 0) { %>
-            <div id="surname-error" class="alert alert-danger" role="alert"><%= errors.get("surname") %></div>
+            <div id="surname-error" class="alert alert-danger" role="alert"><%= errors.get("surname") %>
+            </div>
             <% } else { %>
             <div id="surname-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
@@ -81,7 +111,8 @@
                    value="${param.age}">
 
             <% if (errors != null && errors.get("age") != null && errors.get("age").length() > 0) { %>
-            <div id="age-error" class="alert alert-danger" role="alert"><%= errors.get("age") %></div>
+            <div id="age-error" class="alert alert-danger" role="alert"><%= errors.get("age") %>
+            </div>
             <% } else { %>
             <div id="age-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
@@ -97,10 +128,42 @@
                    value="${param.email}">
 
             <% if (errors != null && errors.get("email") != null && errors.get("email").length() > 0) { %>
-            <div id="email-error" class="alert alert-danger" role="alert"><%= errors.get("email") %></div>
+            <div id="email-error" class="alert alert-danger" role="alert"><%= errors.get("email") %>
+            </div>
             <% } else { %>
             <div id="email-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
+    </form>
+    <% } %>
+
+    <h2 id="form-signin-heading">Logowanie</h2>
+
+    <% if (loginSuccess != null && !loginSuccess) { %>
+    <div id="password-error" class="alert alert-danger" role="alert">Niepoprawne logowanie.</div>
+    <% } %>
+
+    <form class="form-login" action="/login" method="post">
+        <div id="login-wrapper">
+            <label for="login" class="sr-only">Login</label>
+            <input type="text"
+                   id="login"
+                   name="login"
+                   class="form-control form-register-control"
+                   placeholder="Login"
+                   value="${param.login}">
+        </div>
+
+        <div id="password-wrapper">
+            <label for="password" class="sr-only">Hasło</label>
+            <input type="text"
+                   id="password"
+                   name="password"
+                   class="form-control form-register-control"
+                   placeholder="Hasło"
+                   value="${param.password}">
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
