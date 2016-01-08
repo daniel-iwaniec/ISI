@@ -3,6 +3,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.InputStream;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+import javax.xml.parsers.*;
 
 public class XML extends HttpServlet {
     public XML() {
@@ -25,11 +28,20 @@ public class XML extends HttpServlet {
         }
 
         Part filePart = request.getPart("file");
-        InputStream filecontent = filePart.getInputStream();
-        String xml = filecontent.toString();
+        InputStream inputStream = filePart.getInputStream();
 
-        request.setAttribute("xml", xml);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/form.jsp");
-        dispatcher.forward(request, response);
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder;
+        Document document;
+        try {
+            builder = factory.newDocumentBuilder();
+            document = builder.parse(inputStream);
+
+            request.setAttribute("xml", document);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/form.jsp");
+            dispatcher.forward(request, response);
+        } catch (ParserConfigurationException | SAXException e) {
+            e.printStackTrace();
+        }
     }
 }

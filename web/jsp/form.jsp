@@ -1,6 +1,8 @@
 <%@ page import="java.util.Map" %>
+<%@ page import="org.w3c.dom.*" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <% HttpSession userSession = (HttpSession) request.getAttribute("userSession"); %>
+<% Document xml = (Document) request.getAttribute("xml"); %>
 <% Boolean success = (Boolean) request.getAttribute("success"); %>
 <% Boolean loginSuccess = (Boolean) request.getAttribute("loginSuccess"); %>
 <% Map<String, String> errors = (Map<String, String>) request.getAttribute("errors"); %>
@@ -40,13 +42,35 @@
                    value="${param.file}">
 
             <% if (errors != null && errors.get("file") != null && errors.get("file").length() > 0) { %>
-            <div id="name-error" class="alert alert-danger" role="alert"><%= errors.get("file") %></div>
+            <div id="name-error" class="alert alert-danger" role="alert"><%= errors.get("file") %>
+            </div>
             <% } else { %>
             <div id="name-error" class="alert alert-danger alert-hide" role="alert"></div>
             <% } %>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
     </form>
+    <% if (xml != null) { %>
+    <div class="well">
+        <%
+            NodeList cds = xml.getElementsByTagName("cd");
+            for (int i = 0; i < cds.getLength(); i++) {
+                Node nodeCd = cds.item(i);
+                if (nodeCd.getNodeType() == Node.ELEMENT_NODE) {
+                    Element cd = (Element) nodeCd;
+                    out.print("<p>");
+                    out.print("Title : " + cd.getElementsByTagName("title").item(0).getTextContent() + "<br>");
+                    out.print("Artist: " + cd.getElementsByTagName("artist").item(0).getTextContent() + "<br>");
+                    out.print("Country: " + cd.getElementsByTagName("country").item(0).getTextContent() + "<br>");
+                    out.print("Company: " + cd.getElementsByTagName("company").item(0).getTextContent() + "<br>");
+                    out.print("Price: " + cd.getElementsByTagName("price").item(0).getTextContent() + "<br>");
+                    out.print("Year: " + cd.getElementsByTagName("year").item(0).getTextContent() + "<br>");
+                    out.print("</p>");
+                }
+            }
+        %>
+    </div>
+    <% } %>
     <% } else {%>
     <h2 id="form-signin-heading">Rejestracja</h2>
 
