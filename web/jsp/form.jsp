@@ -25,12 +25,13 @@
 <main class="container">
 
     <% if (userSession != null && (boolean) userSession.getAttribute("logged")) { %>
-    <h2 id="form-signin-heading">Panel XML</h2>
+    <h2 id="form-signin-heading">XML</h2>
 
     <% if (loginSuccess != null && loginSuccess) { %>
     <div id="signin-success" class="alert alert-success" role="alert">Pomyślnie zalogowano</div>
     <% } %>
 
+    <% if (xml == null) { %>
     <form id="xml" class="form-xml" action="/xml" method="post" enctype="multipart/form-data">
         <div id="file-wrapper">
             <label for="file" class="sr-only">Plik XML</label>
@@ -50,6 +51,8 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Wyślij</button>
     </form>
+    <%}%>
+
     <% if (xml != null) { %>
     <div class="well">
         <%
@@ -59,8 +62,8 @@
                 if (nodeCd.getNodeType() == Node.ELEMENT_NODE) {
                     Element cd = (Element) nodeCd;
                     out.print("<p>");
-                    out.print("Title : " + cd.getElementsByTagName("title").item(0).getTextContent() + "<br>");
-                    out.print("Artist: " + cd.getElementsByTagName("artist").item(0).getTextContent() + "<br>");
+                    out.print("<i>Title : " + cd.getElementsByTagName("title").item(0).getTextContent() + "</i><br>");
+                    out.print("<b>Artist: " + cd.getElementsByTagName("artist").item(0).getTextContent() + "</b><br>");
                     out.print("Country: " + cd.getElementsByTagName("country").item(0).getTextContent() + "<br>");
                     out.print("Company: " + cd.getElementsByTagName("company").item(0).getTextContent() + "<br>");
                     out.print("Price: " + cd.getElementsByTagName("price").item(0).getTextContent() + "<br>");
@@ -71,6 +74,9 @@
         %>
     </div>
     <% } %>
+
+    <a href="/logout"><button class="btn btn-lg btn-block" type="button">Wyloguj</button></a>
+
     <% } else {%>
     <h2 id="form-signin-heading">Rejestracja</h2>
 
